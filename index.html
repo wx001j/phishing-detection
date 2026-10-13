@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Safelink CyberShield</title>
+    <link rel='stylesheet' href='main.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap rel= stylesheet >"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Visual cyber-particle background-->
+    <div class="glow-bg"></div>
+
+    <!--Main top bar-->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-virus glow-icon"></i>
+            <span>Safe<span class="highlight"><link></span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn active" onclick="switchTab('scanner-tap')"><i class="fa-solid"></i>The Smart Examiner</button>
+            <button class="nav-btn" onclick="switchTab('stats-tap')"><i class="fa-solid fa-chart-line"></i>Live statistics</button>
+            <button class="nav-btn" onclick="switchTab('history-top')"><i class="fa-solid fa-clock-rotate-lift"></i>Test Records</button>
+            
+            
+        </nav>
+        <div class="status-indicator">
+            <span class="pulse-dot"></span>
+        </div>
+    </header>
+
+    <main class="main-container"></main>
+
+    <!--1.Examiner Tab-->
+    <section id="scanner-tab" class="tab-content active">
+        <div class="hero-header">
+            <span class="cyber-badge"><i class="fa-solid fa-lok"></i>Real-time cyber analysis system</span>
+            <h1>Detecting threats and fraudulent links</h1>
+            <p>Paste any suspicious link to analyze it against security databases within seconds</p>
+        </div>
+
+        <!--Search box-->
+        <div class="Search-glass-card">
+            <div class="input-wrapper">
+                <i class="fa-solid fa-terminal input-icon"></i>
+                <input type="url" id="targeturl" placeholder="https://www.youtube.com/">
+            </div>
+            <button class="btn-cyber" onclick="executeScan()">
+                <span>Check the link</span>
+                <i class="fa-solid fa-angles-left"></i>
+            </button>
+        </div>
+
+        <!--Analysis and Percentage-->
+        <div id="scanProcessCard" class="scan-card hidden">
+            <!--The Centesimal Circle-->
+            <div class="Circle-box">
+                <svg class="progress-ring" width="160" height="160">
+                    <circle class="progress-ring-bg" stroke="1e293b" stroke-width="12" fill="transparent" r="65" cx="88" cy="88"></circle>
+                    <circle id="progressCircle" class="progress-ring-circle" stroke="#00f2fe" stroke-width="12" stroke-linecap="round" fill="transparent" r="65" cx="80" cy="80"></circle>
+                    
+                </svg>
+                <div class="Percentage-text">
+                    <span id="percentCounter">0%</span>
+                    <small>Security level</small>
+                </div>
+            </div>
+
+            <!--Live record of research steps-->
+            <div class="terminal-box">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="term-titel">Safelink Security Console <v2 class="4"></v2></span>
+            </div>
+            <div class="terminal-body" id="terminallogs">
+                <p class="log-line"><span class="time">[00:00]</span></p>
+            </div>
+        </div>
+
+        <!--Result of the final report-->
+        <div id="finalReport" class="report-box hidden">
+            <div class="report-header-banner Safe" id="reportBanner">
+                <div class="banner-info">
+                    <i class="fa-solid fa-shield-check banner-icon" id="bannerIcon"></i>
+                </div>
+                <h3 id="reportTitle">The link is highly secure and reliable</h3>
+                <p id="scannedUdlDisplay" class="url-text"></p>
+            </div>
+        </div>
+        <div class="risk-score">
+            <span>Risk level</span>
+            <strong id="riskScoreVal">12 / 100</strong>
+        </div>
+
+        <!--Sub-test details-->
+        <div class="Checks-cards-grid">
+            <div class="check-card">
+                <i class="fa-solid fa-certificate Check-ico green"></i>
+                <div><h4>SSL Certificate / HTTPS/CSS</h4><span class="check-sub">Encrypted and secure</span></div>
+            </div>
+            <div class="check-card">
+                <i class="fa-solid fa-server Check-ico green"></i>
+                <div><h4>Domain reputation</h4><span class="check-sub">Not on any blacklists</span></div>
+            </div>
+            <div class="check-card">
+                <i class="fa-solid fa-bug-slash Check-ico green"></i>
+                <div><h4>Malware</h4><span class="check-sub">Free from malicious code</span></div>
+            </div>
+            <div class="check-card">
+                <i class="fa-solid fa-user-ninja Check-ico green"></i>
+                <div><h4>Phishing check</h4><span class="check-sub">There is no simulation of phishing pages</span></div>
+            </div>
+        </div>
+
+        <div class="report-actions">
+            <button class="btn-outline" onclick="resetScanner()"><i class="fa-solid fa-rotate-right"></i>Check a new link</button>
+        </div>
+
+    </section>
+
+    <!--2.Statistical Tabulation-->
+    <section id="stats-tab" class="tab-content">
+        <div class="stats-overview-grid">
+            <div class="stat-glass-card">
+                <div class="stat-icon-wrap cyan"><i class="fa-solid fa-globe"></i></div>
+            </div>
+            <span class="stat-lable">Total links scanned</span>
+            <h2 class="stat-number">142,850</h2>
+        </div>
+        <div class="stat-glass-card">
+            <div class="stat-icon-wrap red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        </div>
+        <span class="stat-lable">Blocked threats</span>
+        <h2 class="stat-number">4,440</h2>
+    </section>
+
+    <!--3.Test Records Tab-->
+    <section id="history-tab" class="tab-content">
+        <div class="table-glass-card">
+            <h3><i class="fa-solid fa-list-check"></i>Recent University Security Logs</h3>
+            <table class="cyber-table">
+                <thead>
+                    <tr>
+                        <th>The scanned link</th>
+                        <th>the condition</th>
+                        <th>Risk Index</th>
+                        <th>Examination time</th>
+                    </tr>
+                </thead>
+            </table>
+            <td class="ltr-text">https://www.google.com.co</td>
+            <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
+            <td>5/100</td>
+            <td>Two minutes ago</td>
+
+            <td class="ltr-text">https://ukrootsfm.net/5680454568431325/fr/facture-</td>
+            <td><span class="badge danger"><i class="fa-solid fa-xmark"></i>Phishing</span></td>
+            <td>94/100</td>
+            <td>Ten minutes ago</td>
+            <td class="ltr-text">https://github.com/</td>
+            <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
+            <td>2/100</td>
+            <td>Twenty-five minutes ago</td>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    </body>
+    </html>
+    
+        
+            
+                
+                
+                
+                
+                    
+                    
+                
+            
+        
+    
+    
+
