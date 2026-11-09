@@ -3,35 +3,38 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Safelink CyberShield</title>
+    <title> Safelink AI</title>
     <link rel='stylesheet' href='main.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap rel= stylesheet >"
-    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 </head>
 <body>
+    
 
     <!--Visual cyber-particle background-->
     <div class="glow-bg"></div>
 
     <!--Main top bar-->
     <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-shield-virus glow-icon"></i>
-            <span>Safe<span class="highlight"><link></span>
+        <div class="logo-box">
+            <img src="c:\Users\user\Desktop\phishing detection\1.png" alt="imag.png" class="logo-img">
+            <h1 class="logo-title">LinkShield </h1>
+            <p class="logo-sub">A CONSCIOUS CLICK, STRONGER PROTECTION</p>
         </div>
+
         <nav class="nav-links">
-            <button class="nav-btn active" onclick="switchTab('scanner-tap')"><i class="fa-solid"></i>The Smart Examiner</button>
-            <button class="nav-btn" onclick="switchTab('stats-tap')"><i class="fa-solid fa-chart-line"></i>Live statistics</button>
-            <button class="nav-btn" onclick="switchTab('history-top')"><i class="fa-solid fa-clock-rotate-lift"></i>Test Records</button>
-            
-            
+            <button class="nav-btn active" onclick="switchTab('scanner-tab')"><i class="fa-solid"></i>The Smart Examiner</button>
+            <button class="nav-btn" onclick="switchTab('stats-tab')"><i class="fa-solid fa-chart-line"></i>Live statistics</button>
+            <button class="nav-btn" onclick="switchTab('history-tab')"><i class="fa-solid fa-clock-rotate-lift"></i>Test Records</button>
+            <a href="team.html" class="nav-btn"><i class="fa-solid fa-users"></i>Our team</a>
         </nav>
         <div class="status-indicator">
             <span class="pulse-dot"></span>
         </div>
     </header>
 
-    <main class="main-container"></main>
+    <main class="main-container">
 
     <!--1.Examiner Tab-->
     <section id="scanner-tab" class="tab-content active">
@@ -60,7 +63,6 @@
                 <svg class="progress-ring" width="160" height="160">
                     <circle class="progress-ring-bg" stroke="1e293b" stroke-width="12" fill="transparent" r="65" cx="88" cy="88"></circle>
                     <circle id="progressCircle" class="progress-ring-circle" stroke="#00f2fe" stroke-width="12" stroke-linecap="round" fill="transparent" r="65" cx="80" cy="80"></circle>
-                    
                 </svg>
                 <div class="Percentage-text">
                     <span id="percentCounter">0%</span>
@@ -73,7 +75,7 @@
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
-                <span class="term-titel">Safelink Security Console <v2 class="4"></v2></span>
+                <span class="term-titel">Safelink Security Console</span>
             </div>
             <div class="terminal-body" id="terminallogs">
                 <p class="log-line"><span class="time">[00:00]</span></p>
@@ -90,29 +92,10 @@
                 <p id="scannedUdlDisplay" class="url-text"></p>
             </div>
         </div>
+        
         <div class="risk-score">
             <span>Risk level</span>
             <strong id="riskScoreVal">12 / 100</strong>
-        </div>
-
-        <!--Sub-test details-->
-        <div class="Checks-cards-grid">
-            <div class="check-card">
-                <i class="fa-solid fa-certificate Check-ico green"></i>
-                <div><h4>SSL Certificate / HTTPS/CSS</h4><span class="check-sub">Encrypted and secure</span></div>
-            </div>
-            <div class="check-card">
-                <i class="fa-solid fa-server Check-ico green"></i>
-                <div><h4>Domain reputation</h4><span class="check-sub">Not on any blacklists</span></div>
-            </div>
-            <div class="check-card">
-                <i class="fa-solid fa-bug-slash Check-ico green"></i>
-                <div><h4>Malware</h4><span class="check-sub">Free from malicious code</span></div>
-            </div>
-            <div class="check-card">
-                <i class="fa-solid fa-user-ninja Check-ico green"></i>
-                <div><h4>Phishing check</h4><span class="check-sub">There is no simulation of phishing pages</span></div>
-            </div>
         </div>
 
         <div class="report-actions">
@@ -150,37 +133,30 @@
                         <th>Examination time</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td class="ltr-text">https://www.google.com.co</td>
+                        <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
+                        <td>5/100</td>
+                        <td>Two minutes ago</td>
+                    </tr>
+                    <tr>
+                        <td class="ltr-text">https://ukrootsfm.net/5680454568431325/fr/facture-</td>
+                        <td><span class="badge danger"><i class="fa-solid fa-xmark"></i>Phishing</span></td>
+                        <td>94/100</td>
+                        <td>Ten minutes ago</td>
+                    </tr>
+                    <tr>
+                        <td class="ltr-text">https://github.com/</td>
+                        <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
+                        <td>2/100</td>
+                        <td>Twenty-five minutes ago</td>
+                    </tr>
+                </tbody>
             </table>
-            <td class="ltr-text">https://www.google.com.co</td>
-            <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
-            <td>5/100</td>
-            <td>Two minutes ago</td>
-
-            <td class="ltr-text">https://ukrootsfm.net/5680454568431325/fr/facture-</td>
-            <td><span class="badge danger"><i class="fa-solid fa-xmark"></i>Phishing</span></td>
-            <td>94/100</td>
-            <td>Ten minutes ago</td>
-            <td class="ltr-text">https://github.com/</td>
-            <td><span class="badge Safe"><i class="fa-solid fa-check"></i>security</span></td>
-            <td>2/100</td>
-            <td>Twenty-five minutes ago</td>
         </div>
     </section>
+    </main>
     <script src="script.js"></script>
-    </body>
-    </html>
-    
-        
-            
-                
-                
-                
-                
-                    
-                    
-                
-            
-        
-    
-    
-
+</body>
+</html>
